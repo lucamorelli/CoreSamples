@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="pagamento">Pagamenti</label>
+    <select value.bind="pagamentoCorrente" id="pagamento">
+        <option value="">Selezionare un pagamento</option>
+        <option repeat.for="singolo of pagamenti" model.bind="singolo.PagamentoNo">${singolo.Descrizione}</option>
+    </select>
+</template>

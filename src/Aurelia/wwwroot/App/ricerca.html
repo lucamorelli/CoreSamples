@@ -1,0 +1,163 @@
+﻿<template>
+    <style>
+        .campoRicerca{
+            padding-right: 5px;
+            padding-top: 2px;
+        }
+    </style>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form">
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="ultimeOre">Ultime n.Ore</label>
+                        <input type="number" value.bind="filtro.ultimeOre" id="ultimeOre" />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="primeOre">Prime n.Ore</label>
+                        <input type="number" value.bind="filtro.primeOre" id="primeOre" />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <require from='./components/customer-select'></require>
+                        <customer-select solo-attivi="true" cliente-corrente.two-way="filtro.ClienteNo"></customer-select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <require from='./components/order-select'></require>
+                        <order-select commessa-corrente.two-way="filtro.CommessaNo"></order-select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <require from='./components/project-select'></require>
+                        <project-select progetto-corrente.two-way="filtro.ProgettoNo"></project-select>
+                    </div>
+
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <require from='./components/payment-invoice'></require>
+                        <payment-invoice fattura-corrente.two-way="filtro.FatturaNo"></payment-invoice>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataInizio">Data Inizio</label>
+                        <input type="date" value.bind="filtro.DtInizio" id="dataInizio" />
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="dataFine">Data Fine</label>
+                        <input type="date" value.bind="filtro.DtFine" id="dataFine" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <require from='./components/technology-type'></require>
+                        <technology-type tecnologia-corrente.two-way="filtro.TecnologiaNo"></technology-type>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <require from='./components/activity-type'></require>
+                        <activity-type tipo-attivita-corrente.two-way="filtro.TipoAttivitaNo"></activity-type>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="attNonFatture">Solo Att.Non Fatturate</label>
+                        <input type="checkbox" value.bind="filtro.attivitaNonFatturate" id="attNonFatture" />
+                    </div>
+                    <div class="form-group">
+                        <label for="urgenti">Urgenti</label>
+                        <input type="checkbox" value.bind="filtro.urgenti" id="urgenti" />
+                    </div>
+                    <div class="form-group">
+                        <label for="esclAttInterne">Escl.Att.Interne</label>
+                        <input type="checkbox" value.bind="filtro.escAttInterne" id="esclAttInterne" />
+                    </div>
+                    <div class="form-group">
+                        <label for="flagDaFatturare">Flag da Fatturare</label>
+                        <input type="checkbox" value.bind="filtro.flgDaFatturare" id="flagDaFatturare" />
+                    </div>
+                    <div class="form-group">
+                        <label for="soloNonPreviste">Solo Non Previste</label>
+                        <input type="checkbox" value.bind="filtro.flgSoloNonPreviste" id="soloNonPreviste" />
+                    </div>
+                    <div class="form-group">
+                        <label for="escCommesseChiuse">Escl.Commesse Chiuse</label>
+                        <input type="checkbox" value.bind="filtro.flgEscCommesseChiuse" id="escCommesseChiuse" />
+                    </div>
+                    <div class="form-group">
+                        <label for="senzaCommessa">Senza Commessa</label>
+                        <input type="checkbox" value.bind="filtro.flgSenzaCommessa" id="senzaCommessa" />
+                    </div>
+                    <div class="form-group">
+                        <label for="senzaProgetto">Senza Progetto</label>
+                        <input type="checkbox" value.bind="filtro.flgSenzaProgetto" id="senzaProgetto" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button class="btn btn-primary" click.trigger="eseguiRicerca()" >Registra</button>
+                    </div>
+                </div>
+                <table>
+                    <tr if.bind="risultato != undefined && risultato.Righe.length > 0" >
+                        <th></th>
+                        <th class="campoRicerca">Descrizione</th>
+                        <th class="campoRicerca">Cliente</th>
+                        <th class="campoRicerca">Commessa</th>
+                        <th class="campoRicerca">Locazione</th>
+                        <th class="campoRicerca">Data</th>
+                        <th class="campoRicerca">Ore</th>
+                        <th class="campoRicerca">Tipo</th>
+                        <th class="campoRicerca">Progetto</th>
+                    </tr>
+                    <tr repeat.for="singolo of risultato.Righe">
+                        <th><input type="checkbox" checked.bind="singolo.selezionato" change.trigger="selezionaRiga(singolo)" /></th>
+                        <td class="campoRicerca">${singolo.Descrizione}</td>
+                        <td class="campoRicerca">${singolo.Cliente}</td>
+                        <td class="campoRicerca">${singolo.Commessa}</td>
+                        <td class="campoRicerca">${singolo.Locazione}</td>
+                        <td class="campoRicerca">${singolo.Data}</td>
+                        <td class="campoRicerca">${singolo.Ore}</td>
+                        <td class="campoRicerca">${singolo.TipoAttivita}</td>
+                        <td class="campoRicerca">${singolo.Progetto}</td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">Cliente</div>
+                            <div class="col-md-3">Ore</div>
+                       </div>
+                        <div class="row" repeat.for="singolo of risultato.TotaliClienti">
+                            <div class="campoRicerca col-md-3">${singolo.Chiave}</div>
+                            <div class="campoRicerca col-md-3">${singolo.Valore}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">Commessa</div>
+                            <div class="col-md-3">Ore</div>
+                        </div>
+                        <div class="row" repeat.for="singolo of risultato.TotaliCommesse">
+                            <div class="campoRicerca col-md-3">${singolo.Chiave}</div>
+                            <div class="campoRicerca col-md-3">${singolo.Valore}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3">Totale</div>
+                            <div class="col-md-3">${risultato.Totale}</div>
+                        </div>
+                        <div class="row" >
+                            <div class="col-md-3">Selezionate</div>
+                            <div class="col-md-3">${totSelezionate}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

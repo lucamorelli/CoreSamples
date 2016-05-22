@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-event-aggregator\\dist\\commonjs\\aurelia-event-aggregator.d.ts",
+    "raw": "npm:aurelia-event-aggregator/dist/commonjs/aurelia-event-aggregator.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-event-aggregator\\dist\\commonjs\\aurelia-event-aggregator.d.ts"
+  }
+}

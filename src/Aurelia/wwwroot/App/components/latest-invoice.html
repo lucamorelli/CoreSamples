@@ -1,0 +1,17 @@
+﻿<template>
+    <require from="../filters/short-date"></require>
+    <div class="row">
+        <div class="col-md-1">Data</div>
+        <div class="col-md-1">Num.Documento</div>
+        <div class="col-md-6">Data</div>
+        <div class="col-md-2">Cliente</div>
+        <div class="col-md-2">Importo</div>
+    </div>
+    <div class="row" repeat.for="singolo of fatture">
+        <div class="col-md-1" align="right">${singolo.Data}</div>
+        <div class="col-md-1" align="right">${singolo.NumeroDocumento}</div>
+        <div class="col-md-6">${singolo.Data}</div>
+        <div class="col-md-2">${singolo.Cliente}</div>
+        <div class="col-md-2" align="right">${singolo.Importo}</div>
+    </div>
+</template>

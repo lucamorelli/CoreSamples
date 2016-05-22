@@ -1,0 +1,20 @@
+﻿<template>
+    <require from="../filters/short-date"></require>
+    <div class="row">
+        <div class="col-md-1">Data</div>
+        <div class="col-md-1">Importo</div>
+        <div class="col-md-5">Note</div>
+        <div class="col-md-2">Voce</div>
+        <div if.bind="showRowCommands"></div>
+    </div>
+    <div class="row" repeat.for="singolo of spese">
+        <div class="col-md-1" align="right">${singolo.Data | shortDate}</div>
+        <div class="col-md-1" align="right">${singolo.Importo}</div>
+        <div class="col-md-6">${singolo.Note}</div>
+        <div class="col-md-2">${singolo.Voce.Descrizione}</div>
+        <div if.bind="showRowCommands">
+            <button class="btn btn-primary" click.delegate="modifica(singolo)">Modifica</button>
+            <button class="btn btn-danger" click.delegate="cancella(singolo)">Cancella</button>
+        </div>
+    </div>
+</template>

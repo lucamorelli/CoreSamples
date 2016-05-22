@@ -1,0 +1,22 @@
+"use strict";
+var redux_actions_1 = require('redux-actions');
+var lodash_1 = require('lodash');
+exports.ADD_TODO = 'ADD_TODO';
+exports.DELETE_TODO = 'DELETE_TODO';
+exports.EDIT_TODO = 'EDIT_TODO';
+exports.COMPLETE_TODO = 'COMPLETE_TODO';
+exports.COMPLETE_ALL = 'COMPLETE_ALL';
+exports.CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+var addTodo = redux_actions_1.createAction(exports.ADD_TODO, function (text) { return ({ text: text, completed: false }); });
+exports.addTodo = addTodo;
+var deleteTodo = redux_actions_1.createAction(exports.DELETE_TODO, function (todo) { return todo; });
+exports.deleteTodo = deleteTodo;
+var editTodo = redux_actions_1.createAction(exports.EDIT_TODO, function (todo, newText) { return lodash_1.assign(todo, { text: newText }); });
+exports.editTodo = editTodo;
+var completeTodo = redux_actions_1.createAction(exports.COMPLETE_TODO, function (todo) { return todo; });
+exports.completeTodo = completeTodo;
+var completeAll = redux_actions_1.createAction(exports.COMPLETE_ALL, function () { });
+exports.completeAll = completeAll;
+var clearCompleted = redux_actions_1.createAction(exports.CLEAR_COMPLETED, function () { });
+exports.clearCompleted = clearCompleted;
+//# sourceMappingURL=actions.js.map

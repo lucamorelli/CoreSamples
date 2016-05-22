@@ -1,0 +1,24 @@
+﻿<template>
+    <require from="../filters/short-date"></require>
+    <div class="row">
+        <div class="col-md-2">Cliente</div>
+        <div class="col-md-2">Commessa</div>
+        <div class="col-md-1">Data</div>
+        <div class="col-md-1">Importo</div>
+        <div class="col-md-3">Descrizione</div>
+        <div class="col-md-1">Fattura</div>
+        <div if.bind="showRowCommands"></div>
+    </div>
+    <div class="row" repeat.for="singolo of pagamenti">
+        <div class="col-md-2">${singolo.Cliente.Descrizione}</div>
+        <div class="col-md-2">${singolo.Commessa.Descrizione}</div>
+        <div class="col-md-1" align="right">${singolo.DataPagamento | shortDate}</div>
+        <div class="col-md-1" align="right">${singolo.Importo}</div>
+        <div class="col-md-3">${singolo.Descrizione}</div>
+        <div class="col-md-1">${singolo.Fattura.NumFattura}</div>
+        <div if.bind="showRowCommands">
+            <button class="btn btn-primary" click.delegate="modifica(singolo)">Modifica</button>
+            <button class="btn btn-danger" click.delegate="cancella(singolo)">Cancella</button>
+        </div>
+    </div>
+</template>

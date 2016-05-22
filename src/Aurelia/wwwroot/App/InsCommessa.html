@@ -1,0 +1,101 @@
+﻿<template>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <require from='./components/customer-select'></require>
+                        <customer-select cliente-corrente.two-way="commessaCorrente.Cliente"></customer-select>
+                    </div>
+                    <div class="form-group">
+                        <label for="descrizione">Descrizione</label>
+                        <input type="text" value.bind="commessaCorrente.Descrizione" id="descrizione" />
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/quotes'></require>
+                        <quotes preventivo-corrente.two-way="commessaCorrente.Preventivo"></quotes>
+                    </div>
+                    <div class="form-group">
+                        <label for="importo">Importo</label>
+                        <input type="number" value.bind="commessaCorrente.Importo" id="anno" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <require from='./components/customer-project'></require>
+                        <customer-project progetto-corrente.two-way="commessaCorrente.Progetto"></customer-project>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/activity-type'></require>
+                        <activity-type tipo-attivita-corrente.two-way="commessaCorrente.Tipo"></activity-type>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataApertura">Data Apertura</label>
+                        <input type="date" value.bind="commessaCorrente.DataApertura" id="dataApertura" />
+                    </div>
+                    <div class="form-group">
+                        <label for="operativa">Operativa</label>
+                        <input type="checkbox" value.bind="commessaCorrente.Operativa" id="operativa" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea cols="30" rows="5" value.bind="commessaCorrente.Note" id="note"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="terminata">Terminata</label>
+                        <input type="checkbox" value.bind="commessaCorrente.Terminata" id="terminata" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orePregresse">Ore Pregresse</label>
+                        <input type="number" value.bind="commessaCorrente.OrePregresse" id="orePregresse" />
+                    </div>
+                    <div class="form-group">
+                        <label for="orePreviste">Ore Previste</label>
+                        <input type="number" value.bind="commessaCorrente.OrePreviste" id="orePreviste" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="dataChiusura">Data Chiusura</label>
+                        <input type="date" value.bind="commessaCorrente.DataChiusura" id="dataChiusura" />
+                    </div>
+                    <div class="form-group">
+                        <label for="dataEntrataFatturazione">Data Entrata Fatturazione</label>
+                        <input type="date" value.bind="commessaCorrente.DataEntrataFatturazione" id="dataEntrataFatturazione" />
+                    </div>
+                    <div class="form-group">
+                        <label for="aConsuntivo">A Consuntivo</label>
+                        <input type="checkbox" value.bind="commessaCorrente.AConsuntivo" id="aConsuntivo" />
+                    </div>
+                    <div class="form-group">
+                        <label for="daFatturare">Da Fatturare</label>
+                        <input type="checkbox" value.bind="commessaCorrente.DaFatturare" id="daFatturare" />
+                    </div>
+                    <div class="form-group">
+                        <label for="escludiAnalisi">Escludi Analisi</label>
+                        <input type="checkbox" value.bind="commessaCorrente.EscludiAnalisi" id="escludiAnalisi" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button >Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-orders'></require>
+                    <latest-orders record-number="30"></latest-orders>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

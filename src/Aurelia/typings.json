@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "core-js": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#af5b8275d1f2b92738b93fddabc461fc20c553a1",
+    "es6-promise": "github:DefinitelyTyped/DefinitelyTyped/es6-promise/es6-promise.d.ts#af5b8275d1f2b92738b93fddabc461fc20c553a1"
+  }
+}

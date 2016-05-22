@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="tipoAttivita">Tipo Attività</label>
+    <select value.bind="tipoAttivitaCorrente" id="tipoAttivita">
+        <option value="">Selezionare un tipo Attività</option>
+        <option repeat.for="tipo of tipi" model.bind="tipo.TipoAttivitaNo">${tipo.Descrizione}</option>
+    </select>
+</template>

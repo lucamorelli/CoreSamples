@@ -1,0 +1,10 @@
+{
+  "globalDependencies": {
+    "flux": "registry:dt/flux#0.0.0+20160317120654",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff",
+    "react": "registry:dt/react#0.14.0+20160423065914",
+    "react-addons-test-utils": "registry:dt/react-addons-test-utils#0.14.0+20160427035638",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
+  }
+}

@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="progetto">Progetti</label>
+    <select value.bind="progettoCorrente" id="progetto">
+        <option value="">Selezionare un progetto</option>
+        <option repeat.for="singolo of progetti" model.bind="singolo.ProgettoNo">${singolo.Descrizione}</option>
+    </select>
+</template>

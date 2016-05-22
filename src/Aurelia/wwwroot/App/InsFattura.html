@@ -1,0 +1,58 @@
+﻿<template>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <require from='./components/customer-select'></require>
+                        <customer-select cliente-corrente.two-way="fatturaCorrente.Cliente"></customer-select>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" value.bind="fatturaCorrente.DataFattura" id="data" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="numFattura">Num.Fattura</label>
+                        <input type="number" value.bind="fatturaCorrente.NumFattura" id="numFattura"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="anno">Anno</label>
+                        <input type="number" value.bind="fatturaCorrente.Anno" id="anno"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="saldata">Saldata</label>
+                        <input type="checkbox" value.bind="fatturaCorrente.Saldata" id="saldata" />
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea cols="30" rows="5" value.bind="fatturaCorrente.Note" id="note"></textarea>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="dataScadenza">Data Scadenza</label>
+                        <input type="date" value.bind="fatturaCorrente.DataScadenza" id="dataScadenza" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button >Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-invoice'></require>
+                    <latest-invoice record-number="30"></latest-invoice>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

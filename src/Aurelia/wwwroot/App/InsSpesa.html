@@ -1,0 +1,54 @@
+﻿<template>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="importo">Importo</label>
+                        <input type="number" value.bind="spesaCorrente.Importo" id="importo" />
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" value.bind="spesaCorrente.Data" id="data" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea cols="30" rows="5" value.bind="spesaCorrente.Note" id="note"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/expense-voice'></require>
+                        <expense-voice voce-corrente.two-way="spesaCorrente.VoceSpesaNo"></expense-voice>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="noContoCorrente">No Conto Corrente</label>
+                        <input type="checkbox" value.bind="spesaCorrente.NoContoCorrente" id="noContoCorrente" />
+                    </div>
+                    <div class="form-group">
+                        <label for="attesaMovimento">Attesa Movimento</label>
+                        <input type="checkbox" value.bind="spesaCorrente.AttesaMovimento" id="attesaMovimento" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button >Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-expenses'></require>
+                    <latest-expenses record-number="30" show-row-commands="true" 
+                                    on-modifica-spesa.delegate="modificaRecord($event)"
+                                    on-cancella-spesa.delegate="cancellaRecord($event)"></latest-expenses>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

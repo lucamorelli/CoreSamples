@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="commessa">Commessa</label>
+    <select value.bind="commessaCorrente" id="commessa">
+        <option value="">Selezionare una commessa</option>
+        <option repeat.for="singolo of commesse" model.bind="singolo.CommessaNo">${singolo.Descrizione}</option>
+    </select>
+</template>

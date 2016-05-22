@@ -1,0 +1,19 @@
+﻿<template>
+    <require from="../filters/short-date"></require>
+    <div class="row">
+        <div class="col-md-3">Descrizione</div>
+        <div class="col-md-3">Cliente</div>
+        <div class="col-md-1">Importo</div>
+        <div class="col-md-1">Tipo</div>
+        <div class="col-md-1">Operativa</div>
+        <div class="col-md-1">Terminata</div>
+    </div>
+    <div class="row" repeat.for="singolo of commesse">
+        <div class="col-md-3" align="right">${singolo.Descrizione}</div>
+        <div class="col-md-3" align="right">${singolo.Cliente}</div>
+        <div class="col-md-1">${singolo.Importo}</div>
+        <div class="col-md-1">${singolo.Tipo}</div>
+        <div class="col-md-1">${singolo.Operativa}</div>
+        <div class="col-md-1">${singolo.Terminata}</div>
+    </div>
+</template>

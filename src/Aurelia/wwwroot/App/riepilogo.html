@@ -1,0 +1,186 @@
+﻿<template>
+    <style>
+        .campoRicerca{
+            padding-right: 5px;
+            padding-top: 2px;
+        }
+        .campoCliente{
+            width: 120px;
+        }
+        .campoMese{
+            width: 30px;
+            vertical-align: top;
+        }
+        .campoData{
+            width: 20px;
+            text-align: right;
+        }
+    </style>
+    <section>
+        <require from="./filters/positive-number"></require>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <br />
+            Dati Giornalieri
+            <br />
+            <div class="row">
+                <table>
+                    <tr >
+                        <th class="campoRicerca campoData">Mese</th>
+                        <th class="campoRicerca campoData">1</th>
+                        <th class="campoRicerca campoData">2</th>
+                        <th class="campoRicerca campoData">3</th>
+                        <th class="campoRicerca campoData">4</th>
+                        <th class="campoRicerca campoData">5</th>
+                        <th class="campoRicerca campoData">6</th>
+                        <th class="campoRicerca campoData">7</th>
+                        <th class="campoRicerca campoData">8</th>
+                        <th class="campoRicerca campoData">9</th>
+                        <th class="campoRicerca campoData">10</th>
+                        <th class="campoRicerca campoData">11</th>
+                        <th class="campoRicerca campoData">12</th>
+                        <th class="campoRicerca campoData">13</th>
+                        <th class="campoRicerca campoData">14</th>
+                        <th class="campoRicerca campoData">15</th>
+                        <th class="campoRicerca campoData">16</th>
+                        <th class="campoRicerca campoData">17</th>
+                        <th class="campoRicerca campoData">18</th>
+                        <th class="campoRicerca campoData">19</th>
+                        <th class="campoRicerca campoData">20</th>
+                        <th class="campoRicerca campoData">21</th>
+                        <th class="campoRicerca campoData">22</th>
+                        <th class="campoRicerca campoData">23</th>
+                        <th class="campoRicerca campoData">24</th>
+                        <th class="campoRicerca campoData">25</th>
+                        <th class="campoRicerca campoData">26</th>
+                        <th class="campoRicerca campoData">27</th>
+                        <th class="campoRicerca campoData">28</th>
+                        <th class="campoRicerca campoData">29</th>
+                        <th class="campoRicerca campoData">30</th>
+                        <th class="campoRicerca campoData">31</th>
+                        <th class="campoRicerca campoData">Totale</th>
+                        <th></th>
+                    </tr>
+                    <tr repeat.for="singolo of risultato.DatiGiornalieri">
+                        <td class="campoRicerca campoData">${singolo.Mese}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[0] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[1] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[2] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[3] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[4] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[5] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[6] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[7] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[8] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[9] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[10] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[11] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[12] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[13] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[14] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[15] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[16] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[17] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[18] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[19] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[20] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[21] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[22] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[23] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[24] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[25] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[26] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[27] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[28] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[29] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[30] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${singolo.Ore[31] | positiveNumber}</td>
+                        <td class="campoRicerca"><button class="btn btn-primary" click.trigger="datiClienteMese(singolo)">Dati Cliente</button></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            Dati Clienti
+            <br />
+            <div class="row">
+                <table>
+                    <tr>
+                        <th colspan="33">${cliente.Mese}</th>
+                    </tr>
+                    <tr>
+                        <th class="campoRicerca campoCliente">Cliente</th>
+                        <th class="campoRicerca campoData">1</th>
+                        <th class="campoRicerca campoData">2</th>
+                        <th class="campoRicerca campoData">3</th>
+                        <th class="campoRicerca campoData">4</th>
+                        <th class="campoRicerca campoData">5</th>
+                        <th class="campoRicerca campoData">6</th>
+                        <th class="campoRicerca campoData">7</th>
+                        <th class="campoRicerca campoData">8</th>
+                        <th class="campoRicerca campoData">9</th>
+                        <th class="campoRicerca campoData">10</th>
+                        <th class="campoRicerca campoData">11</th>
+                        <th class="campoRicerca campoData">12</th>
+                        <th class="campoRicerca campoData">13</th>
+                        <th class="campoRicerca campoData">14</th>
+                        <th class="campoRicerca campoData">15</th>
+                        <th class="campoRicerca campoData">16</th>
+                        <th class="campoRicerca campoData">17</th>
+                        <th class="campoRicerca campoData">18</th>
+                        <th class="campoRicerca campoData">19</th>
+                        <th class="campoRicerca campoData">20</th>
+                        <th class="campoRicerca campoData">21</th>
+                        <th class="campoRicerca campoData">22</th>
+                        <th class="campoRicerca campoData">23</th>
+                        <th class="campoRicerca campoData">24</th>
+                        <th class="campoRicerca campoData">25</th>
+                        <th class="campoRicerca campoData">26</th>
+                        <th class="campoRicerca campoData">27</th>
+                        <th class="campoRicerca campoData">28</th>
+                        <th class="campoRicerca campoData">29</th>
+                        <th class="campoRicerca campoData">30</th>
+                        <th class="campoRicerca campoData">31</th>
+                        <th class="campoRicerca campoData">Totale</th>
+                    </tr>
+                    <tr repeat.for="mese of clienteMeseCorrente.Clienti">
+                        <td valign="top" class="campoRicerca campoCliente">${mese.Cliente}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[0] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[1] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[2] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[3] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[4] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[5] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[6] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[7] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[8] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[9] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[10] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[11] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[12] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[13] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[14] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[15] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[16] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[17] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[18] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[19] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[20] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[21] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[22] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[23] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[24] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[25] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[26] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[27] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[28] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[29] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[30] | positiveNumber}</td>
+                        <td class="campoRicerca campoData">${mese.Ore[31] | positiveNumber}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+</template>

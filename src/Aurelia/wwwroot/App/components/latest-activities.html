@@ -1,0 +1,25 @@
+﻿<template>
+    <div class="row">
+        <div class="col-md-1">Data</div>
+        <div class="col-md-1">Ore</div>
+        <div class="col-md-2">Descrizione</div>
+        <div class="col-md-2">Cliente</div>
+        <div class="col-md-2">Commessa</div>
+        <div class="col-md-1">Progetto</div>
+        <div class="col-md-1">Tipo</div>
+        <div if.bind="showRowCommands"></div>
+    </div>
+    <div class="row" repeat.for="singolo of attivita">
+        <div class="col-md-1">${singolo.Data}</div>
+        <div class="col-md-1">${singolo.Ore}</div>
+        <div class="col-md-2">${singolo.Descrizione}</div>
+        <div class="col-md-2">${singolo.DescCliente}</div>
+        <div class="col-md-2">${singolo.DescCommessa}</div>
+        <div class="col-md-1">${singolo.DescProgetto}</div>
+        <div class="col-md-1">${singolo.DescTipo}</div>
+        <div if.bind="showRowCommands">
+            <button class="btn btn-primary" click.delegate="modifica(singolo)">Modifica</button>
+            <button class="btn btn-danger" click.delegate="cancella(singolo)">Cancella</button>
+        </div>
+    </div>
+</template>

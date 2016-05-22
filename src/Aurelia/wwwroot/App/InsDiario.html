@@ -1,0 +1,46 @@
+﻿<template>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="titolo">Titolo</label>
+                        <input type="text" value.bind="voceCorrente.Titolo" id="titolo" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="contenuto">Contenuto</label>
+                        <textarea cols="30" rows="5" value.bind="voceCorrente.Contenuto" id="contenuto"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" value.bind="voceCorrente.TsInserimento" id="data" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" value.bind="voceCorrente.Tags" id="tags" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button click.trigger="mostraDati()">Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-diario'></require>
+                    <latest-diario  record-number="30" show-row-commands="true" 
+                                    on-modifica-diario.delegate="modificaRecord($event)"
+                                    on-cancella-diario.delegate="cancellaRecord($event)"></latest-diario>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

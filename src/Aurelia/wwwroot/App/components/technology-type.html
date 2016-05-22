@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="tecnologia">Tecnologia</label>
+    <select value.bind="tecnologiaCorrente" id="tecnologia">
+        <option value="">Selezionare una Tecnologia</option>
+        <option repeat.for="tipo of tecnologie" model.bind="tipo.TecnologiaNo">${tipo.Descrizione}</option>
+    </select>
+</template>

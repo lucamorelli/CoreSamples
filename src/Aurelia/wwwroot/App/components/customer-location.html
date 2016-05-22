@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="locazione">Locazione</label>
+    <select value.bind="locazioneCorrente" id="locazione">
+        <option value="">Selezionare una locazione</option>
+        <option repeat.for="singolo of locazioni" model.bind="singolo.LocazioneNo">${singolo.Descrizione}</option>
+    </select>
+</template>

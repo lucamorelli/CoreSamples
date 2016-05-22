@@ -1,0 +1,26 @@
+﻿<custselect>
+    <style>
+        .ng-valid[required] {
+            border-left: 5px solid #42A948; /* green */
+        }
+
+        .ng-invalid {
+            border-left: 5px solid #a94442; /* red */
+        }
+    </style>
+    <label>Cliente</label>
+    <!--<select class="form-control" [id]="input.id" [(ngModel)]="clienteNo" (ngModelChange)="selezionaCliente()" [name]="input.name"
+            [ngFormControl]="input.control" [disabled]="input.disabled">
+        <option *ngFor="let cliente of Clienti" [value]="cliente.ClienteNo">{{cliente.Descrizione}}</option>
+    </select>-->
+
+    <select class="form-control" id="cliente" [(ngModel)]="clienteNo" (ngModelChange)="selezionaCliente()"
+            >
+        <option *ngFor="let cliente of Clienti" [value]="cliente.ClienteNo">{{cliente.Descrizione}}</option>
+    </select>
+    <!--
+        <div [hidden]="cliente.valid" class="alert alert-danger">
+            Selezionare il cliente
+        </div>
+    -->
+</custselect>

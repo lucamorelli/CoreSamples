@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="preventivo">Preventivo</label>
+    <select value.bind="preventivoCorrente" id="preventivo">
+        <option value="">Selezionare un Preventivo</option>
+        <option repeat.for="tipo of preventivi" model.bind="tipo">${tipo.Descrizione}</option>
+    </select>
+</template>>

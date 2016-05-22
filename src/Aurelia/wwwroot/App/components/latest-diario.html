@@ -1,0 +1,20 @@
+﻿<template>
+    <require from="../filters/short-date"></require>
+    <div class="row">
+        <div class="col-md-1">Titolo</div>
+        <div class="col-md-6">Descrizione</div>
+        <div class="col-md-1">Tags</div>
+        <div class="col-md-2">Giorno</div>
+        <div if.bind="showRowCommands"></div>
+    </div>
+    <div class="row" repeat.for="singolo of ultimi">
+        <div class="col-md-1">${singolo.Titolo}</div>
+        <div class="col-md-6">${singolo.Contenuto}</div>
+        <div class="col-md-1">${singolo.Tags}</div>
+        <div class="col-md-2">${singolo.TsInserimento | shortDate}</div>
+        <div if.bind="showRowCommands">
+            <button class="btn btn-primary" click.delegate="modifica(singolo)">Modifica</button>
+            <button class="btn btn-danger" click.delegate="cancella(singolo)">Cancella</button>
+        </div>
+    </div>
+</template>

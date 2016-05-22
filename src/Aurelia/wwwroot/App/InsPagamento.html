@@ -1,0 +1,61 @@
+﻿<template>
+    <section>
+        <br />
+        <br />
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <require from='./components/customer-select'></require>
+                        <customer-select cliente-corrente.two-way="pagamentoCorrente.ClienteNo"></customer-select>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/customer-order'></require>
+                        <customer-order commessa-corrente.two-way="pagamentoCorrente.CommessaNo"></customer-order>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data Pagamento</label>
+                        <input type="date" value.bind="pagamentoCorrente.DataPagamento" id="data" />
+                    </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="importo">Importo</label>
+                        <input type="number" value.bind="pagamentoCorrente.Importo" id="importo"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="descrizione">Descrizione</label>
+                        <input type="text" value.bind="pagamentoCorrente.Descrizione" id="descrizione"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea cols="30" rows="5" value.bind="pagamentoCorrente.Note" id="note"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/payment-invoice'></require>
+                        <payment-invoice fattura-corrente.two-way="pagamentoCorrente.FatturaNo"></payment-invoice>
+                    </div>
+                    <div class="form-group">
+                        <label for="inRiepilogo">In Riepilogo</label>
+                        <input type="checkbox" value.bind="pagamentoCorrente.InRiepilogo" id="inRiepilogo" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button >Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-payments'></require>
+                    <latest-payments record-number="30" show-row-commands="true" 
+                                    on-modifica-pagamento.delegate="modificaRecord($event)"
+                                    on-cancella-pagamento.delegate="cancellaRecord($event)"></latest-payments>
+                </div>
+            </form>
+        </div>
+    </section>
+</template>

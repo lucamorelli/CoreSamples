@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="cliente">Cliente</label>
+    <select value.bind="clienteCorrente" change.trigger="selezionaCliente()" id="cliente">
+        <option value="">Selezionare un cliente</option>
+        <option repeat.for="singolo of clienti" model.bind="singolo.ClienteNo">${singolo.Descrizione}</option>
+    </select>
+</template>

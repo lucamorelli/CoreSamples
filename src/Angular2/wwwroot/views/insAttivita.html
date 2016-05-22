@@ -1,0 +1,124 @@
+﻿<attivita>
+    <div class="container">
+        <style>
+            .ng-valid[required] {
+                border-left: 5px solid #42A948; /* green */
+            }
+
+            .ng-invalid {
+                border-left: 5px solid #a94442; /* red */
+            }
+        </style>
+        <h2>Clienti</h2>
+        <form  [ngFormModel]="formConfig" (ngSubmit)="registra()" #hf="ngForm" novalidate>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="descrizione">Descrizione</label>
+                    <input id="descrizione" type="text" [(ngModel)]="descrizione" ngControl="descrizione" #name="ngForm" required />
+
+                    <div [hidden]="name.valid" class="alert alert-danger">
+                        Inserire la descrizione
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <customer-select (selezioneCliente)="selezionaCliente($event)"
+                                     [(ngModel)]="clienteNo"
+                                     ngControl="cliente" #cliente="ngForm" ></customer-select>
+                    <div [hidden]="cliente.valid" class="alert alert-danger">
+                        Selezionare il cliente
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <customer-order-select (selezioneCommessa)="selezionaCommessa($event)"
+                                           [clienteNo] ="clienteNo"
+                                            [(ngModel)]="commessaNo"
+                                            ngControl="commessa" #commessa="ngForm"></customer-order-select>
+                    <div [hidden]="commessa.valid" class="alert alert-danger">
+                        Selezionare la commessa
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <customer-location-select (selezioneLocazione)="selezionaLocazione($event)"
+                                           [clienteNo]="clienteNo"
+                                           [(ngModel)]="locazioneNo"></customer-location-select>
+                    <!--<label for="locazione">Locazione</label>
+                    <select class="form-control" id="locazione" [(ngModel)]="locazioneNo" ngControl="locazione">
+                        <option *ngFor="let locazione of Locazioni" [value]="locazione.LocazioneNo">{{locazione.Descrizione}}</option>
+                    </select>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="data">Data</label>
+                    <input id="data" type="date" [(ngModel)]="data" ngControl="data" #datalavoro="ngForm" required />
+                    <div [hidden]="datalavoro.valid" class="alert alert-danger">
+                        indicare la data
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="ore">Num.Ore</label>
+                    <input id="ore" type="number" [(ngModel)]="numOre" ngControl="ore" #ore="ngForm" required />
+                    <div [hidden]="ore.valid" class="alert alert-danger">
+                        Inserire il numero di ore
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="daFatturare">Da Fatturare</label>
+                    <input id="daFatturare" type="checkbox" [(ngModel)]="daFatturare" ngControl="daFatturare" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="fatturato">Fatturato</label>
+                    <input id="fatturato" type="checkbox" [(ngModel)]="fatturato" ngControl="fatturato" />
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="nonPrevisto">Non Previsto</label>
+                    <input id="nonPrevisto" type="checkbox" [(ngModel)]="nonPrevisto" ngControl="nonPrevisto" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="note">Note</label>
+                    <textarea cols="30" rows="5" [(ngModel)]="note" id="note" ngControl="note"></textarea>
+                </div>
+                <div class="form-group col-md-3">
+                    <activity-type-select (selezioneTipoAttivita)="selezionaTipoAttivita($event)"
+                                     [(ngModel)]="tipoAttivitaNo"
+                                     ngControl="tipoAttivita" #tattivita="ngForm"></activity-type-select>
+                    <div [hidden]="tattivita.valid" class="alert alert-danger">
+                        Selezionare il tipo di attivita
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="urgente">Urgente</label>
+                    <input id="urgente" type="checkbox" [(ngModel)]="urgente" ngControl="urgente" />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="fattura">Fattura</label>
+                    <select class="form-control" id="fattura" [(ngModel)]="fatturaNo" ngControl="fattura">
+                        <option *ngFor="#tipo of Fatture" [value]="tipo.FatturaNo">{{tipo.NumFattura + "/" + tipo.Anno}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="progetto">Progetto</label>
+                    <select class="form-control" id="progetto" [(ngModel)]="progettoNo" ngControl="progetto">
+                        <option *ngFor="#tipo of Progetti" [value]="tipo.ProgettoNo">{{tipo.Descrizione}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="pagamento">Pagamento</label>
+                    <select class="form-control" id="pagamento" [(ngModel)]="pagamentoNo" ngControl="pagamento">
+                        <option *ngFor="#tipo of Pagamenti" [value]="tipo.PagamentoNo">{{tipo.Descrizione}}</option>
+                    </select>
+                </div>
+            </div>
+            <!--<button type="submit" class="btn btn-default" [disabled]="!hf.form.valid">Registra</button>-->
+            <button class="btn btn-default" (click)="registra()">Test</button>
+            <button type="submit" class="btn btn-default" >Registra</button>
+        </form>
+    </div>
+</attivita>

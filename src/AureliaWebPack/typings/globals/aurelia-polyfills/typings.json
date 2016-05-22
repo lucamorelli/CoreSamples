@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-polyfills\\dist\\commonjs\\aurelia-polyfills.d.ts",
+    "raw": "npm:aurelia-polyfills/dist/commonjs/aurelia-polyfills.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-polyfills\\dist\\commonjs\\aurelia-polyfills.d.ts"
+  }
+}

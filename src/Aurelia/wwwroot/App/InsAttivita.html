@@ -1,0 +1,120 @@
+﻿<template>
+    <style>
+        .validation-errors {
+            background-color: lightgrey;
+        }
+
+            .validation-errors li.invalid {
+                color: red;
+                font-weight: bold;
+            }
+    </style>
+
+    <section>
+        <h2>${heading}</h2>
+        <div class="container">
+            <form class="form-inline" role="form" submit.delegate="registrazione()">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="descrizione">Descrizione</label>
+                        <input type="text" value.bind="attivitaCorrente.Descrizione" id="descrizione" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <require from='./components/customer-select'></require>
+                            <customer-select cliente-corrente.two-way="attivitaCorrente.ClienteNo"></customer-select>
+                        </div>
+                </div>
+                <div class="form-group">
+                        <div class="form-group">
+                            <require from='./components/customer-order'></require>
+                            <customer-order commessa-corrente.two-way="attivitaCorrente.CommessaNo"></customer-order>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <div class="form-group">
+                            <require from='./components/customer-location'></require>
+                            <customer-location locazione-corrente.two-way="attivitaCorrente.LocazioneNo"></customer-location>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" value.bind="attivitaCorrente.Data" id="data" />
+                    </div>
+                    <div class="form-group">
+                        <label for="numOre">Num.Ore</label>
+                        <input type="number" value.bind="attivitaCorrente.NumOre" />
+                    </div>
+                    <div class="form-group">
+                        <label for="daFatturare">Da Fatturare</label>
+                        <input type="checkbox" value.bind="attivitaCorrente.DaFatturare" id="daFatturare" />
+                    </div>
+                    <div class="form-group">
+                        <label for="fatturato">Fatturato</label>
+                        <input type="checkbox" value.bind="attivitaCorrente.Fatturato" id="fatturato" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nonPrevisto">Non Previsto</label>
+                        <input type="checkbox" value.bind="attivitaCorrente.NonPrevisto" id="nonPrevisto" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="note">Note</label>
+                        <textarea cols="30" rows="5" value.bind="attivitaCorrente.Note" id="note"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/activity-type'></require>
+                        <activity-type tipo-attivita-corrente.two-way="attivitaCorrente.TipoAttivitaNo"></activity-type>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgente">Urgente</label>
+                        <input type="checkbox" value.bind="attivitaCorrente.Urgente" id="urgente" />
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/payment-invoice'></require>
+                        <payment-invoice fattura-corrente.two-way="attivitaCorrente.FatturaNo"></payment-invoice>
+                    </div>
+                    <div class="form-group">
+                        <require from='./components/customer-payment'></require>
+                        <customer-payment pagamento-corrente.two-way="attivitaCorrente.PagamentoNo"></customer-payment>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <require from='./components/customer-project'></require>
+                        <customer-project progetto-corrente.two-way="attivitaCorrente.ProgettoNo"></customer-project>
+                    </div>
+                    <button click.trigger="aggiornaNote()">Aggiorna Note</button>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <button click.trigger="mostraDati()">Registra</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <require from='./components/latest-activities'></require>
+                    <latest-activities record-number="30" show-row-commands="true"
+                                       on-modifica-attivita.delegate="modificaRecord($event)"
+                                       on-cancella-attivita.delegate="cancellaRecord($event)"></latest-activities>
+                </div>
+            </form>
+            <div class="row validation-errors" show.bind="hasValidated">
+                <ul>
+                    <li class="invalid" repeat.for="message of validationMessages">
+                        ${message}
+                    </li>
+                    <li if.bind="validationMessages.length === 0">
+                        <em>No validation errors!</em>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</template>

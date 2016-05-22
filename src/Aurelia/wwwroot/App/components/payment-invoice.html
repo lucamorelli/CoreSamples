@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="fattura">Fattura di saldo</label>
+    <select value.bind="fatturaCorrente" id="fattura">
+        <option value="">Selezionare una fattura</option>
+        <option repeat.for="fattura of fatture" model.bind="fattura.FatturaNo">${fattura.NumFattura + "/" + fattura.Anno }</option>
+    </select>
+</template>

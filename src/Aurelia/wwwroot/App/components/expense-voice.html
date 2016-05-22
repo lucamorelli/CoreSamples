@@ -1,0 +1,7 @@
+﻿<template>
+    <label for="voceSpesa">Voce Spesa</label>
+    <select value.bind="voceCorrente" id="voceSpesa">
+        <option value="">Selezionare una voce Spesa</option>
+        <option repeat.for="singolo of vociSpesa" model.bind="singolo.VoceSpesaNo">${singolo.Descrizione}</option>
+    </select>
+</template>
