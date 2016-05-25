@@ -46,6 +46,8 @@ namespace Aurelia
             services.AddDbContext<AttivitaDbContext>(options =>
                 options.UseSqlServer(connString));
 
+            services.AddMemoryCache();
+
             // Add framework services.
             services.AddMvc();
 

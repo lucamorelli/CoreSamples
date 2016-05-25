@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyLibrary.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,10 +14,12 @@ namespace MyLibrary.Controllers
     public class ClienteController : Controller
     {
         private AttivitaDbContext db { get; set; }
+        private IMemoryCache _memoryCache { get; set; }
 
-        public ClienteController(AttivitaDbContext db)
+        public ClienteController(AttivitaDbContext db, IMemoryCache memCache)
         {
             this.db = db;
+            this._memoryCache = memCache;
         }
 
         /// <summary>
@@ -27,7 +30,23 @@ namespace MyLibrary.Controllers
         [Produces(typeof(IEnumerable<Cliente>))]
         public IEnumerable<Cliente> Get()
         {
-            var clienti = db.Clienti.Where(cli => cli.Attivo && cli.Operativo != null && cli.Operativo.Value).OrderBy(cli => cli.Descrizione).ToList();
+            var keyName = "lst-Clienti";
+
+            IEnumerable<Cliente> clienti = null;
+
+            if (!_memoryCache.TryGetValue(keyName, out clienti))
+            {
+                clienti = db.Clienti
+                    .Where(cli => cli.Attivo && cli.Operativo != null && cli.Operativo.Value).OrderBy(cli => cli.Descrizione)
+                    .ToList();
+                _memoryCache.Set(keyName, clienti, new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
+            }
+            else {
+                // per me in questo caso è inutile
+                clienti = _memoryCache.Get(keyName) as IEnumerable<Cliente>;
+            }
+
             return clienti;
         }
 
@@ -66,7 +85,27 @@ namespace MyLibrary.Controllers
         [HttpGet]
         public IEnumerable<Cliente> Lista()
         {
-            var clienti = db.Clienti.Where(cli => cli.Attivo && cli.Operativo != null && cli.Operativo.Value).OrderBy(cli => cli.Descrizione).ToList();
+            var keyName = "lst-Clienti";
+
+            IEnumerable<Cliente> clienti = null;
+
+            if (!_memoryCache.TryGetValue(keyName, out clienti))
+            {
+
+                clienti = db.Clienti
+                .Where(cli => cli.Attivo && cli.Operativo != null && cli.Operativo.Value)
+                .OrderBy(cli => cli.Descrizione)
+                .ToList();
+                _memoryCache.Set(keyName, clienti, new MemoryCacheEntryOptions()
+                    .SetAbsoluteExpiration(TimeSpan.FromMinutes(5)));
+            }
+            else
+            {
+                // per me in questo caso è inutile
+                clienti = _memoryCache.Get(keyName) as IEnumerable<Cliente>;
+            }
+
+
             return clienti;
         }
 

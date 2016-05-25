@@ -43,7 +43,6 @@ namespace CoreSamples
             services.AddDbContext<AttivitaDbContext>(options =>
                 options.UseSqlServer(connString));
 
-
             // Add framework services.
             services.AddMvc();
         }
