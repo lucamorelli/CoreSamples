@@ -2,7 +2,7 @@
 import {HttpClient} from 'aurelia-http-client';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {DialogService} from 'aurelia-dialog';
-//import {ValidationEngine, Validator, required, email} from 'aurelia-validatejs';
+import {ValidationEngine, Validator, ValidationReporter} from 'aurelia-validatejs';
 
 import {Attivita} from 'attivita/Attivita';
 import {UltimaAttivitaVm} from 'attivita/UltimaAttivitaVm';
@@ -35,6 +35,8 @@ export class insAttivita {
     mostraDati(): void {
         this.hasValidated = true;
         this.validationMessages = [];
+
+        var reporter: ValidationReporter = ValidationEngine.getValidationReporter(this);
         //this.validationGroup.validate()
         //    .then(result => {
         //        if (this.attivitaCorrente.AttivitaNo == undefined || this.attivitaCorrente.AttivitaNo == 0) {

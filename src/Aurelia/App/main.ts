@@ -5,7 +5,7 @@
         .plugin('aurelia-dialog', (settings) => {
                 settings.lock = true;
         })
-        //.plugin('aurelia-validatejs');
+        .plugin('aurelia-validatejs');
 
     aurelia.start().then(() => aurelia.setRoot());
 }

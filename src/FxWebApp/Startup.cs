@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using FxWebApp.Data;
 using FxWebApp.Models;
 using FxWebApp.Services;
+using MyLibrary.Model;
 
 namespace FxWebApp
 {
@@ -41,11 +42,15 @@ namespace FxWebApp
         {
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+                .AddDbContext<AttivitaDbContext>(options =>
+                options.UseSqlServer(Configuration["Data:AttivitaConnection:ConnectionString"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddMemoryCache();
 
             services.AddMvc();
 

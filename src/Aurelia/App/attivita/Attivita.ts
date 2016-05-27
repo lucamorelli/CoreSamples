@@ -6,11 +6,12 @@ import {Fattura} from 'fatture/Fattura';
 import {Progetto} from 'progetti/Progetto';
 import {Pagamento} from 'pagamenti/Pagamento';
 
-//import {required, email} from 'aurelia-validatejs';
+import {required, email} from 'aurelia-validatejs';
 
 export class Attivita {
     public AttivitaNo: number;
-    public Descrizione: string;
+
+    @required() public Descrizione: string;
     public Cliente: Cliente;
     public Commessa: Commessa;
     public Locazione: Locazione;
