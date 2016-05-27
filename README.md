@@ -2,6 +2,7 @@
 collection of project with same spa frameworks running under **asp.net core 1 rc 2** and **visual studio 2015**.   
 at the moment this is almost a collection of projects found in internet and checked running under vs configuration, in most of the you'll find the link to the original post.    
 most of the projects are created using the .net core prototype.   
+all the samples use **typescript**. 
 
 this collection contains:   
 prototype running **angular 2 rc 1** using systemjs.   
