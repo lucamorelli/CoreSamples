@@ -15,6 +15,10 @@
 
   "frameworks": {
     "netstandard1.5": {
+      "Microsoft.NETCore.App": {
+        "version": "1.0.0-rc2-3002702",
+        "type": "platform"
+      },
       "imports": [
         "dnxcore50",
         "portable-net451+win8"

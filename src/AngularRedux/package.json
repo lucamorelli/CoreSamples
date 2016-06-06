@@ -1,0 +1,70 @@
+{
+  "scripts": {
+    "dist": "gulp dist",
+    "postinstall-bak": "jspm install && npm run typings",
+    "typings": "rm -rf typings && gulp typings && typings install"
+  },
+  "jspm": {
+    "dependencies": {
+      "@angular/common": "npm:@angular/common@^2.0.0-rc.1",
+      "@angular/compiler": "npm:@angular/compiler@^2.0.0-rc.1",
+      "@angular/core": "npm:@angular/core@^2.0.0-rc.1",
+      "@angular/http": "npm:@angular/http@^2.0.0-rc.1",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.1",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.1",
+      "@angular/router-deprecated": "npm:@angular/router-deprecated@^2.0.0-rc.1",
+      "angular2-redux": "npm:angular2-redux@^3.0.0",
+      "angular2-simple-list": "github:InfomediaLtd/angular2-simple-list@master",
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "crypto": "github:jspm/nodelibs-crypto@^0.1.0",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "redux": "npm:redux@^3.0.4",
+      "redux-thunk": "npm:redux-thunk@^1.0.0",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.2",
+      "reselect": "npm:reselect@^2.0.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.6",
+      "ts": "github:frankwallis/plugin-typescript@^2.1.4",
+      "zone.js": "npm:zone.js@^0.6.10"
+    },
+    "devDependencies": {
+      "clean-css": "npm:clean-css@^3.4.9",
+      "typescript": "npm:typescript@^1.8"
+    }
+  },
+  "typingsDependencies": {
+    "registry": [
+      "redux",
+      "redux-thunk"
+    ],
+    "file": [
+      "jspm_packages/npm/angular2-redux@VERSION/dist/index.d.ts",
+      "jspm_packages/github/InfomediaLtd/angular2-simple-list@VERSION/app/index.d.ts"
+    ]
+  },
+  "devDependencies": {
+    "@angular/common": "^2.0.0-rc.1",
+    "@angular/compiler": "^2.0.0-rc.1",
+    "@angular/core": "^2.0.0-rc.1",
+    "@angular/http": "^2.0.0-rc.1",
+    "@angular/platform-browser": "^2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "clean-css": "^3.4.9",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-run": "^1.6.12",
+    "gulp-shell": "^0.5.1",
+    "gulp-tslint": "^4.2.2",
+    "gulp-tslint-stylish": "^1.1.1",
+    "gulp-uglify": "^1.5.1",
+    "jspm": "^0.16.33",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "rxjs": "5.0.0-beta.6",
+    "tslint": "^3.2.1",
+    "tslint-eslint-rules": "^1.0.1",
+    "typescript": "^1.8"
+  }
+}

@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:7115/",
+      "applicationUrl": "http://localhost:22341/",
       "sslPort": 0
     }
   },
@@ -16,10 +16,10 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Angular2WebPack": {
+    "AngularRedux": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/",
+      "launchUrl": "http://localhost:5000/api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
