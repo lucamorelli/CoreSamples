@@ -1,0 +1,15 @@
+﻿<custselect>
+    <style>
+        .ng-valid[required] {
+            border-left: 5px solid #42A948; /* green */
+        }
+
+        .ng-invalid {
+            border-left: 5px solid #a94442; /* red */
+        }
+    </style>
+    <label>Commessa</label>
+    <select class="form-control" id="locazione" [(ngModel)]="locazioneNo" (ngModelChange)="selezionaLocazione()">
+        <option *ngFor="let locazione of Locazioni" [value]="locazione.LocazioneNo">{{locazione.Descrizione}}</option>
+    </select>
+</custselect>

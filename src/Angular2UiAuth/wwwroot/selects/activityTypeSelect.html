@@ -1,0 +1,15 @@
+﻿<acttypeselect>
+    <style>
+        .ng-valid[required] {
+            border-left: 5px solid #42A948; /* green */
+        }
+
+        .ng-invalid {
+            border-left: 5px solid #a94442; /* red */
+        }
+    </style>
+    <label>Tipo Attività</label>
+    <select class="form-control" id="tipoAttivita" [(ngModel)]="tipoAttivitaNo" (ngModelChange)="selezionaTipoAttivita()">
+        <option *ngFor="let tipo of TipiAttivita" [value]="tipo.TipoAttivitaNo">{{tipo.Descrizione}}</option>
+    </select>
+</acttypeselect>

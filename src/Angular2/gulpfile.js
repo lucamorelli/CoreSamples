@@ -56,6 +56,5 @@ gulp.task("copy-deps:jquery", function () {
          .pipe(gulp.dest(paths.npmLibs + '/jquery/'));
 });
 
-
 gulp.task("copy-deps", ["copy-deps:rxjs", 'copy-deps:@angular', 'copy-deps:systemjs', 'copy-deps:es6-shim',
     'copy-deps:bootstrap', 'copy-deps:jquery', 'copy-deps:zone.js', 'copy-deps:reflect-metadata']);
