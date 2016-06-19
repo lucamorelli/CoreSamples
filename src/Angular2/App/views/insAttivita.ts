@@ -15,8 +15,7 @@ import {fieldConfiguration} from '../helpers/fieldConfiguration';
     directives: [customerSelect, activityTypeSelect, customerOrderSelect, customerLocationSelect],
     selector: 'attivita',  
     templateUrl: '../views/insAttivita.html',
-    bindings: [FattureService, ProgettiService, PagamentiService],
-    providers: [HTTP_PROVIDERS, FORM_PROVIDERS] 
+    providers: [HTTP_PROVIDERS, FORM_PROVIDERS, FattureService, ProgettiService, PagamentiService] 
 })
 export class InsAttivitaCmp implements OnInit {
     public Fatture: Fattura[];

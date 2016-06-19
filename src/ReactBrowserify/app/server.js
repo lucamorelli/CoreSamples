@@ -1,4 +1,12 @@
 "use strict";
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -24,7 +32,7 @@ app.get('/help', function (req, res) {
 app.use(function (req, res, next) {
     var location = memoryHistory.createLocation(req.url);
     react_router_1.match({ routes: routes_1.default, location: location }, function (error, redirectLocation, renderProps) {
-        var html = ReactDOMServer.renderToString(React.createElement(react_router_1.RouterContext, React.__spread({}, renderProps)));
+        var html = ReactDOMServer.renderToString(React.createElement(react_router_1.RouterContext, __assign({}, renderProps)));
         return res.render('main', { content: html, title: 'Home', min: min });
     });
 });

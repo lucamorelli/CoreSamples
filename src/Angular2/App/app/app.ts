@@ -17,8 +17,8 @@ import {InsAttivitaCmp} from '../views/insAttivita';
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    { path: '/', component: HomeCmp, as: 'Home' },
-    { path: '/InsAttivita', component: InsAttivitaCmp, as: 'InsAttivita' },
-    { path: '/Todo', component: TodoCmp, as: 'Todo' }
+    { path: '/', component: HomeCmp, name: 'Home' },
+    { path: '/InsAttivita', component: InsAttivitaCmp, name: 'InsAttivita' },
+    { path: '/Todo', component: TodoCmp, name: 'Todo' }
 ])
 export class AppCmp { } 

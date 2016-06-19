@@ -2,7 +2,10 @@
 import {HttpClient} from 'aurelia-http-client';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {DialogService} from 'aurelia-dialog';
-import {ValidationEngine, Validator, ValidationReporter} from 'aurelia-validatejs';
+//import {inject, NewInstance} from 'aurelia-dependency-injection';
+
+import {ValidationController, validateTrigger} from 'aurelia-validation';
+import {required, email, ValidationRules} from 'aurelia-validatejs';
 
 import {Attivita} from 'attivita/Attivita';
 import {UltimaAttivitaVm} from 'attivita/UltimaAttivitaVm';
@@ -10,8 +13,21 @@ import {AttivitaService} from 'attivita/AttivitaService';
 
 import {confirmOperation} from 'dialogs/confirmOperation';
 
+
+// http://blog.durandal.io/2016/06/14/new-validation-alpha-is-here/
+
 @autoinject
 export class insAttivita {
+    //@required
+    //public firstName : string = '';
+
+    //@required
+    //public lastName: string  = '';
+
+    //@required
+    //@email
+    //public email: string  = '';
+
     heading = 'Inserimento Attività';
 
     attivitaCorrente: Attivita;
@@ -20,9 +36,14 @@ export class insAttivita {
     validationMessages: string[];
 
     constructor(private http: HttpClient, private attivitaService: AttivitaService, private evtAgg: EventAggregator,
-        private dialogService: DialogService) {
+        private dialogService: DialogService, private validationController: ValidationController) {
         this.attivitaCorrente = new Attivita();
         this.attivitaCorrente.Data = new Date();
+
+        this.validationController.validateTrigger = validateTrigger.manual;
+
+        ValidationRules.ensure('ClienteNo').required()
+            .ensure('CommessaNo').required()
     } 
 
     activate() {
@@ -33,10 +54,11 @@ export class insAttivita {
     }
 
     mostraDati(): void {
+        let errors = this.validationController.validate();
+
         this.hasValidated = true;
         this.validationMessages = [];
 
-        var reporter: ValidationReporter = ValidationEngine.getValidationReporter(this);
         //this.validationGroup.validate()
         //    .then(result => {
         //        if (this.attivitaCorrente.AttivitaNo == undefined || this.attivitaCorrente.AttivitaNo == 0) {

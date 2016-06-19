@@ -25,9 +25,9 @@ gulp.task("copy-deps:@angular", function () {
          .pipe(gulp.dest(paths.npmLibs + '/@angular/'));
 });
 
-gulp.task("copy-deps:es6-shim", function () {
-    return gulp.src(paths.npmSrc + '/es6-shim/es6-sh*', { base: paths.npmSrc + '/es6-shim/' })
-         .pipe(gulp.dest(paths.npmLibs + '/es6-shim/'));
+gulp.task("copy-deps:core-js", function () {
+    return gulp.src(paths.npmSrc + '/core-js/client/**/*.*', { base: paths.npmSrc + '/core-js/client/' })
+         .pipe(gulp.dest(paths.npmLibs + '/core-js/'));
 });
 
 gulp.task("copy-deps:rxjs", function () {
@@ -56,5 +56,5 @@ gulp.task("copy-deps:jquery", function () {
          .pipe(gulp.dest(paths.npmLibs + '/jquery/'));
 });
 
-gulp.task("copy-deps", ["copy-deps:rxjs", 'copy-deps:@angular', 'copy-deps:systemjs', 'copy-deps:es6-shim',
+gulp.task("copy-deps", ["copy-deps:rxjs", 'copy-deps:@angular', 'copy-deps:systemjs', 'copy-deps:core-js',
     'copy-deps:bootstrap', 'copy-deps:jquery', 'copy-deps:zone.js', 'copy-deps:reflect-metadata']);

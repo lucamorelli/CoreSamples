@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/validation/a191f25ef32ce04982096a93c3d4f91000798024/dist/aurelia-validation.d.ts",
+    "raw": "github:aurelia/validation/dist/aurelia-validation.d.ts#a191f25ef32ce04982096a93c3d4f91000798024",
+    "typings": "https://raw.githubusercontent.com/aurelia/validation/a191f25ef32ce04982096a93c3d4f91000798024/dist/aurelia-validation.d.ts"
+  }
+}

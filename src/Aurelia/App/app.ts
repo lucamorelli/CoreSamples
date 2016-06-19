@@ -1,4 +1,5 @@
-﻿import 'bootstrap';
+﻿import 'jquery';
+import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
 import 'bluebird';
 // jspm install css=github:systemjs/plugin-css
