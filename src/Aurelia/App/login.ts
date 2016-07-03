@@ -29,6 +29,7 @@ export class Login {
             })
             .catch(err => {
                 err.json().then(function (e) {
+                    alert(e.message);
                     console.log("login failure : " + e.message);
                 });
 

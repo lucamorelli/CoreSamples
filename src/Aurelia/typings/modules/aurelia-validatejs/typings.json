@@ -1,8 +1,11 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "https://raw.githubusercontent.com/aurelia/validatejs/56ade2c59420cf521006f239d0b18892fe8db6d1/dist/aurelia-validatejs.d.ts",
-    "raw": "github:aurelia/validatejs/dist/aurelia-validatejs.d.ts#56ade2c59420cf521006f239d0b18892fe8db6d1",
-    "typings": "https://raw.githubusercontent.com/aurelia/validatejs/56ade2c59420cf521006f239d0b18892fe8db6d1/dist/aurelia-validatejs.d.ts"
+    "src": "https://raw.githubusercontent.com/Aurelia/validatejs/master/typings.json",
+    "raw": "github:Aurelia/validatejs",
+    "main": "dist/aurelia-validatejs.d.ts",
+    "global": false,
+    "name": "aurelia-validatejs",
+    "type": "typings"
   }
 }

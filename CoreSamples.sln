@@ -42,6 +42,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AngularRedux", "src\Angular
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Angular2UiAuth", "src\Angular2UiAuth\Angular2UiAuth.xproj", "{0093B7DA-21A8-4947-8D10-65EF14D892CF}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RtmCoreWebAppAuth", "src\RtmCoreWebAppAuth\RtmCoreWebAppAuth.xproj", "{B676FD44-C243-4213-8DC9-6205A3410E07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,6 +110,10 @@ Global
 		{0093B7DA-21A8-4947-8D10-65EF14D892CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0093B7DA-21A8-4947-8D10-65EF14D892CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0093B7DA-21A8-4947-8D10-65EF14D892CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B676FD44-C243-4213-8DC9-6205A3410E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B676FD44-C243-4213-8DC9-6205A3410E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B676FD44-C243-4213-8DC9-6205A3410E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B676FD44-C243-4213-8DC9-6205A3410E07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,5 +134,6 @@ Global
 		{6BC5B0ED-EDFB-4F37-96A1-CA892B124FB9} = {9A79D309-6762-4A70-A4C2-8AB81BF7B920}
 		{0B4E3171-AA1D-4F24-8098-01BC466DC163} = {9A79D309-6762-4A70-A4C2-8AB81BF7B920}
 		{0093B7DA-21A8-4947-8D10-65EF14D892CF} = {9A79D309-6762-4A70-A4C2-8AB81BF7B920}
+		{B676FD44-C243-4213-8DC9-6205A3410E07} = {9A79D309-6762-4A70-A4C2-8AB81BF7B920}
 	EndGlobalSection
 EndGlobal

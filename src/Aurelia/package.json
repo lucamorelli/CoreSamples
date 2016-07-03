@@ -51,5 +51,8 @@
       "babel": "npm:babel-core@^5.8.21",
       "babel-runtime": "npm:babel-runtime@^5.8.20"
     }
+  },
+  "dependencies": {
+    "urlsearchparams": "^0.1.1"
   }
 }
