@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "removeComments": false,
+    "target": "es5",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "wwwroot",
+    "module": "system",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "moduleResolution": "node"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot",
+    "typings/globals/es6-promise/index.d.ts",
+    "typings/main",
+    "typings/main.d.ts"
+  ]
+}

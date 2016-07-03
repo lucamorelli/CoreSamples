@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +7,21 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyLibrary.Model;
 using MyLibrary.Options;
+using MyLibrary.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Aurelia
 {
     // https://github.com/aurelia/webpack-plugin
     // https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-typescript-webpack
+    // http://capesean.co.za/blog/asp-net-5-jwt-tokens/
+    // https://github.com/SoftwareMasons/aurelia-openiddict
+    // https://github.com/paulvanbladel/aurelia-identityserver-aspnetcore
+
+
+    // https://github.com/openiddict/openiddict-core
+
+    //https://ci.appveyor.com/project/openiddict/openiddict-core/build/1.0.0-alpha2-337/artifacts
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -42,12 +49,23 @@ namespace Aurelia
         {
             var connString = Configuration["Data:AttivitaConnection:ConnectionString"];
             services.AddDbContext<AttivitaDbContext>(options =>
-                options.UseSqlServer(connString));
-
+                options.UseSqlServer(connString))
+                    .AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                    , p => p.MigrationsAssembly("Aurelia")));
             services.AddMemoryCache();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             // Add framework services.
             services.AddMvc();
+
+            //  Register the OpenIddict services, includin gthe default EntityFramework stores.
+            services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
+                .DisableHttpsRequirement()
+                .UseJsonWebTokens();
 
             services.AddOptions();
             services.Configure<MyOptions>((options) => 
@@ -64,7 +82,7 @@ namespace Aurelia
 
             if (env.IsDevelopment())
             {
-                app.UseRuntimeInfoPage(); // default path is /runtimeinfo
+//                app.UseRuntimeInfoPage(); // default path is /runtimeinfo
             }
 
             var options = new DefaultFilesOptions
@@ -74,6 +92,11 @@ namespace Aurelia
             app.UseDefaultFiles(options);
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
+            app.UseOpenIddict();
+
+
             app.UseMvc();
         }
     }

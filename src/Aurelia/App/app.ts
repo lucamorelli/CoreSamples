@@ -12,16 +12,20 @@ import 'bluebird';
 import {Router} from 'aurelia-router';
 import {RouterConfiguration} from 'aurelia-router';
 
+import {AuthenticateStep} from 'aurelia-authentication';
+
 export class App {
     router: Router; 
     
     configureRouter(config: RouterConfiguration, router: Router) {
         config.title = 'Aurelia'; 
+        config.addPipelineStep('authorize', AuthenticateStep);
+
         config.map([
             { route: ['', 'welcome'], name: 'welcome', moduleId: './welcome', nav: true, title: 'Welcome', settings: 'none' },
             { route: 'flickr', name: 'flickr', moduleId: './flickr', nav: true, title: 'Flickr', settings: 'none' }, 
-            { route: 'attivita', name: 'attivita', moduleId: './InsAttivita', nav: true, title: 'Attività', settings: 'manage' }, 
-            { route: 'diario', name: 'diario', moduleId: './InsDiario', nav: true, title: 'Diario', settings: 'manage' }, 
+            { route: 'attivita', name: 'attivita', moduleId: './InsAttivita', nav: true, title: 'Attività', settings: 'manage', auth: true }, 
+            { route: 'diario', name: 'diario', moduleId: './InsDiario', nav: true, title: 'Diario', settings: 'manage', auth: true }, 
             { route: 'spesa', name: 'spesa', moduleId: './InsSpesa', nav: true, title: 'Spesa', settings: 'manage' }, 
             { route: 'fattura', name: 'fattura', moduleId: './InsFattura', nav: true, title: 'Fattura', settings: 'manage' }, 
             { route: 'pagamento', name: 'pagamento', moduleId: './InsPagamento', nav: true, title: 'Pagamento', settings: 'manage' }, 
@@ -29,7 +33,10 @@ export class App {
             { route: 'child-router', name: 'childRouter', moduleId: './child-router', nav: true, title: 'Child Router', settings: 'none'  },
             { route: 'ricerca', name: 'ricerca', moduleId: './ricerca', nav: true, title: 'Ricerca', settings: 'report' },
             { route: 'riepilogo', name: 'riepilogo', moduleId: './riepilogo', nav: true, title: 'Riepilogo', settings: 'report' },
-            { route: 'ricercaDiario', name: 'ricercaDiario', moduleId: './ricercaDiario', nav: true, title: 'Diario', settings: 'report' }
+            { route: 'ricercaDiario', name: 'ricercaDiario', moduleId: './ricercaDiario', nav: true, title: 'Diario', settings: 'report' },
+            { route: 'login', moduleId: './login', nav: false, title: 'Login', name: 'login' },
+            { route: 'logout', moduleId: './logout', nav: false, title: 'Logout', name: 'logout' },
+            { route: 'signup', moduleId: './signup', nav: false, title: 'Signup', name: 'signup' }
         ]);
 
         this.router = router;

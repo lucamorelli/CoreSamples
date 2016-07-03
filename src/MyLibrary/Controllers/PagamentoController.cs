@@ -48,9 +48,9 @@ namespace MyLibrary.Controllers
             //        jsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             //    }
             //}
-            var mvcOptions = context.HttpContext.RequestServices.GetRequiredService<IOptions<MvcOptions>>();
-            var formatter = mvcOptions.Value.OutputFormatters.OfType<JsonOutputFormatter>().First();
-            formatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //var mvcOptions = context.HttpContext.RequestServices.GetRequiredService<IOptions<MvcOptions>>();
+            //var formatter = mvcOptions.Value.OutputFormatters.OfType<JsonOutputFormatter>().First();
+            //formatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
         }
 

@@ -1,29 +1,29 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
-    "NETStandard.Library": "1.5.0-rc2-24027",
-    "Microsoft.Extensions.Options": "1.0.0-rc2-final",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final",
-    "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final",
-    "Microsoft.EntityFrameworkCore": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.JsonPatch": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Caching.Abstractions": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Caching.Memory": "1.0.0-rc2-final"
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.Extensions.Options": "1.0.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Relational": "1.0.0",
+    "Microsoft.EntityFrameworkCore": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.JsonPatch": "1.0.0",
+    "Microsoft.Extensions.Caching.Abstractions": "1.0.0",
+    "Microsoft.Extensions.Caching.Memory": "1.0.0",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
+    "OpenIddict": "1.0.0-alpha2-0331"
   },
-
-  "frameworks": {
-    "netstandard1.5": {
-      "Microsoft.NETCore.App": {
-        "version": "1.0.0-rc2-3002702",
-        "type": "platform"
+  "tools": {
+    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
+  },  
+    "frameworks": {
+      "netstandard1.6": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.0",
+          "type": "platform"
+        }
       },
-      "imports": [
-        "dnxcore50",
-        "portable-net451+win8"
-      ]
-    },
-    "net461": { }
+      "net461": { }
+    }
   }
-}

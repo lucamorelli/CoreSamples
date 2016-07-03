@@ -48,7 +48,7 @@ namespace ReactHotReload
 
             if (env.IsDevelopment())
             {
-                app.UseRuntimeInfoPage(); // default path is /runtimeinfo
+                //app.UseRuntimeInfoPage(); // default path is /runtimeinfo
             }
 
             app.UseWebpackDevServer();

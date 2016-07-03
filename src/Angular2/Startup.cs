@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyLibrary.Model;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 // https://github.com/AngularClass/angular2-webpack-starter
 namespace CoreSamples
@@ -41,7 +42,17 @@ namespace CoreSamples
             services.AddMemoryCache();
 
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(opt =>
+            {
+                var resolver = opt.SerializerSettings.ContractResolver;
+                if (resolver != null)
+                {
+                    var res = resolver as DefaultContractResolver;
+                    res.NamingStrategy = null;  // <<!-- this removes the camelcasing
+                }
+
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +69,7 @@ namespace CoreSamples
 
             app.UseStaticFiles();
 
-            app.UseMvc();
+            app.UseMvc(); 
         }
     }
 }

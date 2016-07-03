@@ -37,9 +37,9 @@ namespace MyLibrary.Controllers
             base.OnActionExecuting(context);
 
 
-            var mvcOptions = context.HttpContext.RequestServices.GetRequiredService<IOptions<MvcOptions>>();
-            var formatter = mvcOptions.Value.OutputFormatters.OfType<JsonOutputFormatter>().First();
-            formatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //var mvcOptions = context.HttpContext.RequestServices.GetRequiredService<IOptions<MvcOptions>>();
+            //var formatter = mvcOptions.Value.OutputFormatters.OfType<JsonOutputFormatter>().First();
+            //formatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
 
             //var lstFormatters = this.BindingContext.OutputFormatters.ToList();
             //foreach (var formatter in lstFormatters)
