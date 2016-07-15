@@ -20,6 +20,7 @@ namespace Aurelia
 
 
     // https://github.com/openiddict/openiddict-core
+    // https://github.com/SpoonX/aurelia-api
 
     //https://ci.appveyor.com/project/openiddict/openiddict-core/build/1.0.0-alpha2-337/artifacts
     public class Startup
@@ -65,6 +66,8 @@ namespace Aurelia
             //  Register the OpenIddict services, includin gthe default EntityFramework stores.
             services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
                 .DisableHttpsRequirement()
+                //.EnableTokenEndpoint("/connect/token")
+                //.AllowPasswordFlow()
                 .UseJsonWebTokens();
 
             services.AddOptions();
