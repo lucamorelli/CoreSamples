@@ -1,8 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-bootstrapper-webpack\\dist\\commonjs\\aurelia-bootstrapper-webpack.d.ts",
-    "raw": "npm:aurelia-bootstrapper-webpack/dist/commonjs/aurelia-bootstrapper-webpack.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-bootstrapper-webpack\\dist\\commonjs\\aurelia-bootstrapper-webpack.d.ts"
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-bootstrapper-webpack\\dist\\aurelia-bootstrapper-webpack.d.ts",
+    "raw": "npm:aurelia-bootstrapper-webpack/dist/aurelia-bootstrapper-webpack.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-bootstrapper-webpack\\dist\\aurelia-bootstrapper-webpack.d.ts"
   }
 }

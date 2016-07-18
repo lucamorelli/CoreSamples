@@ -1,8 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-path\\dist\\commonjs\\aurelia-path.d.ts",
-    "raw": "npm:aurelia-path/dist/commonjs/aurelia-path.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-path\\dist\\commonjs\\aurelia-path.d.ts"
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-path\\dist\\aurelia-path.d.ts",
+    "raw": "npm:aurelia-path/dist/aurelia-path.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-path\\dist\\aurelia-path.d.ts"
   }
 }

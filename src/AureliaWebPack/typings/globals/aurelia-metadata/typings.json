@@ -1,8 +1,8 @@
 {
   "resolution": "main",
   "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-metadata\\dist\\commonjs\\aurelia-metadata.d.ts",
-    "raw": "npm:aurelia-metadata/dist/commonjs/aurelia-metadata.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-metadata\\dist\\commonjs\\aurelia-metadata.d.ts"
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-metadata\\dist\\aurelia-metadata.d.ts",
+    "raw": "npm:aurelia-metadata/dist/aurelia-metadata.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-metadata\\dist\\aurelia-metadata.d.ts"
   }
 }

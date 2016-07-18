@@ -1,7 +1,8 @@
 {
   "globalDependencies": {
     "core-js": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#af5b8275d1f2b92738b93fddabc461fc20c553a1",
-    "whatwg-fetch": "github:Aurelia/Fetch-client/doc/whatwg-fetch.d.ts"
+    "whatwg-fetch": "github:Aurelia/Fetch-client/doc/whatwg-fetch.d.ts",
+    "url": "github:Aurelia/Fetch-client/doc/url.d.ts"
   },
   "dependencies": {
     "aurelia-binding": "github:aurelia/binding",

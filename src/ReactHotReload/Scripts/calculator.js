@@ -39,7 +39,14 @@ class Calculator extends React.Component {
         let buttonrows = buttons.map((row, idx) => {
             return (React.createElement("div", {key: "row" + idx, className: "adder-row"}, row));
         });
-        return (React.createElement("div", {className: "adder-container"}, React.createElement("div", {className: "adder-row"}, React.createElement("span", {className: "adder-operand adder-display"}, this.calculatorStore.operand)), React.createElement("div", {className: "adder-row"}, React.createElement("span", {className: "adder-total adder-display"}, this.calculatorStore.total)), buttonrows));
+        return (React.createElement("div", {className: "adder-container"}, 
+            React.createElement("div", {className: "adder-row"}, 
+                React.createElement("span", {className: "adder-operand adder-display"}, this.calculatorStore.operand)
+            ), 
+            React.createElement("div", {className: "adder-row"}, 
+                React.createElement("span", {className: "adder-total adder-display"}, this.calculatorStore.total)
+            ), 
+            buttonrows));
     }
 }
 exports.Calculator = Calculator;

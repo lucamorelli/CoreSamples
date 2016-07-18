@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-binding\\dist\\commonjs\\aurelia-binding.d.ts",
-    "raw": "npm:aurelia-binding/dist/commonjs/aurelia-binding.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-binding\\dist\\commonjs\\aurelia-binding.d.ts"
-  }
-}

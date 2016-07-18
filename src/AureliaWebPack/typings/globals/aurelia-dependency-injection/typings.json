@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-dependency-injection\\dist\\commonjs\\aurelia-dependency-injection.d.ts",
-    "raw": "npm:aurelia-dependency-injection/dist/commonjs/aurelia-dependency-injection.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-dependency-injection\\dist\\commonjs\\aurelia-dependency-injection.d.ts"
-  }
-}

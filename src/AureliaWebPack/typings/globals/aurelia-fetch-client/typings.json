@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-fetch-client\\dist\\commonjs\\aurelia-fetch-client.d.ts",
-    "raw": "npm:aurelia-fetch-client/dist/commonjs/aurelia-fetch-client.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-fetch-client\\dist\\commonjs\\aurelia-fetch-client.d.ts"
-  }
-}

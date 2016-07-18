@@ -36,7 +36,10 @@ var TodoItem = (function (_super) {
             element = (React.createElement(TodoTextInput_1.default, {text: todo.text, editing: this.state.editing, onSave: function (text) { return _this.handleSave(todo, text); }}));
         }
         else {
-            element = (React.createElement("div", {className: "view"}, React.createElement("input", {className: "toggle", type: "checkbox", checked: todo.completed, onChange: function () { return completeTodo(todo); }}), React.createElement("label", {onDoubleClick: this.handleDoubleClick.bind(this)}, todo.text), React.createElement("button", {className: "destroy", onClick: function () { return deleteTodo(todo); }})));
+            element = (React.createElement("div", {className: "view"}, 
+                React.createElement("input", {className: "toggle", type: "checkbox", checked: todo.completed, onChange: function () { return completeTodo(todo); }}), 
+                React.createElement("label", {onDoubleClick: this.handleDoubleClick.bind(this)}, todo.text), 
+                React.createElement("button", {className: "destroy", onClick: function () { return deleteTodo(todo); }})));
         }
         return (React.createElement("li", {className: classNames({
             completed: todo.completed,

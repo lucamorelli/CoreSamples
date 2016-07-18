@@ -17,8 +17,8 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "MyLibrary": "1.0.0-*",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0"
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
   },
 
   "tools": {

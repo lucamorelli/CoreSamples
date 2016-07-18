@@ -8,5 +8,7 @@ var Route = Router.Route;
 var IndexRoute = Router.IndexRoute;
 var App = require('./app.tsx');
 var HomePage = require('./homePage.tsx');
-var routes = (React.createElement(Route, {path: "/", component: App}, React.createElement(IndexRoute, {component: HomePage})));
+var routes = (React.createElement(Route, {path: "/", component: App}, 
+    React.createElement(IndexRoute, {component: HomePage})
+));
 module.exports = routes;

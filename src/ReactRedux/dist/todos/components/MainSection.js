@@ -52,9 +52,12 @@ var MainSection = (function (_super) {
         var completedCount = todos.reduce(function (count, todo) {
             return todo.completed ? count + 1 : count;
         }, 0);
-        return (React.createElement("section", {className: "main"}, this.renderToggleAll(completedCount), React.createElement("ul", {className: "todo-list"}, filteredTodos.map(function (todo) {
-            return React.createElement(TodoItem_1.default, {key: todo.id, todo: todo, editTodo: editTodo, completeTodo: completeTodo, deleteTodo: deleteTodo});
-        })), this.renderFooter(completedCount)));
+        return (React.createElement("section", {className: "main"}, 
+            this.renderToggleAll(completedCount), 
+            React.createElement("ul", {className: "todo-list"}, filteredTodos.map(function (todo) {
+                return React.createElement(TodoItem_1.default, {key: todo.id, todo: todo, editTodo: editTodo, completeTodo: completeTodo, deleteTodo: deleteTodo});
+            })), 
+            this.renderFooter(completedCount)));
     };
     return MainSection;
 }(React.Component));

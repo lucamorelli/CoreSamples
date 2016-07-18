@@ -7,7 +7,6 @@ using MyLibrary.Model;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
-// https://github.com/AngularClass/angular2-webpack-starter
 namespace CoreSamples
 {
     public class Startup

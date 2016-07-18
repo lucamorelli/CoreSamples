@@ -21,7 +21,11 @@ var Footer = (function (_super) {
     Footer.prototype.renderTodoCount = function () {
         var activeCount = this.props.activeCount;
         var itemWord = activeCount === 1 ? 'item' : 'items';
-        return (React.createElement("span", {className: "todo-count"}, React.createElement("strong", null, activeCount || 'No'), " ", itemWord, " left"));
+        return (React.createElement("span", {className: "todo-count"}, 
+            React.createElement("strong", null, activeCount || 'No'), 
+            " ", 
+            itemWord, 
+            " left"));
     };
     Footer.prototype.renderFilterLink = function (filter) {
         var title = FILTER_TITLES[filter];
@@ -36,9 +40,12 @@ var Footer = (function (_super) {
     };
     Footer.prototype.render = function () {
         var _this = this;
-        return (React.createElement("footer", {className: "footer"}, this.renderTodoCount(), React.createElement("ul", {className: "filters"}, [TodoFilters_1.SHOW_ALL, TodoFilters_1.SHOW_ACTIVE, TodoFilters_1.SHOW_COMPLETED].map(function (filter) {
-            return React.createElement("li", {key: filter}, _this.renderFilterLink(filter));
-        })), this.renderClearButton()));
+        return (React.createElement("footer", {className: "footer"}, 
+            this.renderTodoCount(), 
+            React.createElement("ul", {className: "filters"}, [TodoFilters_1.SHOW_ALL, TodoFilters_1.SHOW_ACTIVE, TodoFilters_1.SHOW_COMPLETED].map(function (filter) {
+                return React.createElement("li", {key: filter}, _this.renderFilterLink(filter));
+            })), 
+            this.renderClearButton()));
     };
     return Footer;
 }(React.Component));

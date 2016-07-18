@@ -15,8 +15,9 @@
   "exclude": [
     "node_modules",
     "wwwroot",
-    "typings/globals/es6-promise/index.d.ts",
     "typings/main",
-    "typings/main.d.ts"
+    "typings/main.d.ts",
+    "typings/browser",
+    "typings/browser.d.ts"
   ]
 }

@@ -5,8 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyLibrary.Model;
 using Microsoft.EntityFrameworkCore;
-
-// https://github.com/AngularClass/angular2-webpack-starter
+using MyLibrary.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 // https://github.com/ronzeidman/ng2-ui-auth-example/blob/master/package.json
 // https://github.com/ronzeidman/ng2-ui-auth
@@ -41,10 +41,25 @@ namespace CoreSamples
         {
             var connString = Configuration["Data:AttivitaConnection:ConnectionString"];
             services.AddDbContext<AttivitaDbContext>(options =>
-                options.UseSqlServer(connString));
+                options.UseSqlServer(connString))
+                    .AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")
+                    , p => p.MigrationsAssembly("Angular2UiAuth")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
             // Add framework services.
             services.AddMvc();
+
+            //  Register the OpenIddict services, includin gthe default EntityFramework stores.
+            services.AddOpenIddict<ApplicationUser, ApplicationDbContext>()
+                .DisableHttpsRequirement()
+                .EnableTokenEndpoint("/connect/token")
+                .AllowPasswordFlow()
+                .UseJsonWebTokens();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +75,9 @@ namespace CoreSamples
             app.UseDefaultFiles(options);
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
+            app.UseOpenIddict();
 
             app.UseMvc();
         }

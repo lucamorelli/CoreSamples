@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-framework\\dist\\aurelia-framework.d.ts",
+    "raw": "npm:aurelia-framework/dist/aurelia-framework.d.ts",
+    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-framework\\dist\\aurelia-framework.d.ts"
+  }
+}

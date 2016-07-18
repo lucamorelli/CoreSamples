@@ -42,7 +42,11 @@ var Main = (function (_super) {
         var todoItems = this.state.todoList.map(function (item) {
             return React.createElement(todoItem_1.TodoItem, {key: item.key, item: item, onRemove: _this.removeItem});
         });
-        return (React.createElement("div", null, React.createElement("div", null, React.createElement("input", {type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName}), React.createElement("button", {onClick: this.addItem}, "add")), React.createElement("ul", null, todoItems)));
+        return (React.createElement("div", null, 
+            React.createElement("div", null, 
+                React.createElement("input", {type: "text", placeholder: "input new item", value: this.state.newItem.description, onChange: this.changeName}), 
+                React.createElement("button", {onClick: this.addItem}, "add")), 
+            React.createElement("ul", null, todoItems)));
     };
     return Main;
 }(React.Component));

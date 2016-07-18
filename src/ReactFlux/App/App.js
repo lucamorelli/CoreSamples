@@ -6,7 +6,9 @@ require("./Log/ActionLogger");
 require("./Global/Styles/global.less");
 export default class App extends BaseComponent {
     doRender() {
-        return React.createElement("div", null, React.createElement(ContentPage, null));
+        return React.createElement("div", null, 
+            React.createElement(ContentPage, null)
+        );
     }
     componentDidMount() {
         CommonActionCreators.loadApp();

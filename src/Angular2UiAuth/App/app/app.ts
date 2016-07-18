@@ -29,9 +29,9 @@ const GOOGLE_CLIENT_ID = 'my_client_id.apps.googleusercontent.com';
     directives: [Login, ROUTER_DIRECTIVES],
 })
 @RouteConfig([
-    { path: '/', component: HomeCmp, as: 'Home' },
-    { path: '/InsAttivita', component: InsAttivitaCmp, as: 'InsAttivita' },
-    { path: '/Todo', component: TodoCmp, as: 'Todo' },
+    { path: '/', component: HomeCmp, name: 'Home' },
+    { path: '/InsAttivita', component: InsAttivitaCmp, name: 'InsAttivita' },
+    { path: '/Todo', component: TodoCmp, name: 'Todo' },
     { path: '/login', name: 'Login', component: Login, useAsDefault: true },
     { path: '/signup', name: 'Signup', component: Signup},
 ])

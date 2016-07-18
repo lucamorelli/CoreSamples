@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-history\\dist\\commonjs\\aurelia-history.d.ts",
-    "raw": "npm:aurelia-history/dist/commonjs/aurelia-history.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-history\\dist\\commonjs\\aurelia-history.d.ts"
-  }
-}

@@ -18,7 +18,9 @@ var Header = (function (_super) {
         }
     };
     Header.prototype.render = function () {
-        return (React.createElement("header", {className: "header"}, React.createElement("h1", null, "todos"), React.createElement(TodoTextInput_1.default, {newTodo: true, onSave: this.handleSave.bind(this), placeholder: "What needs to be done?"})));
+        return (React.createElement("header", {className: "header"}, 
+            React.createElement("h1", null, "todos"), 
+            React.createElement(TodoTextInput_1.default, {newTodo: true, onSave: this.handleSave.bind(this), placeholder: "What needs to be done?"})));
     };
     return Header;
 }(React.Component));

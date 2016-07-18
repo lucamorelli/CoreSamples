@@ -15,7 +15,12 @@ var TodoItem = (function (_super) {
         this.props.onRemove(this.props.item);
     };
     TodoItem.prototype.render = function () {
-        return (React.createElement("li", null, React.createElement("span", null, " ", this.props.item.description, " "), React.createElement("button", {onClick: this.removeItem}, "delete ")));
+        return (React.createElement("li", null, 
+            React.createElement("span", null, 
+                " ", 
+                this.props.item.description, 
+                " "), 
+            React.createElement("button", {onClick: this.removeItem}, "delete ")));
     };
     return TodoItem;
 }(React.Component));

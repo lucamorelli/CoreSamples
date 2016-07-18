@@ -1,9 +1,11 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var _angular_core = require('@angular/core');
 var _angular_http = require('@angular/http');
 var rxjs_Observable = require('rxjs/Observable');
-var rxjs_add_operator_map = require('rxjs/add/operator/map');
+var rxjs_add_operator_do = require('rxjs/add/operator/do');
 var rxjs_add_observable_interval = require('rxjs/add/observable/interval');
 var rxjs_add_observable_fromEvent = require('rxjs/add/observable/fromEvent');
 var rxjs_add_operator_concatMap = require('rxjs/add/operator/concatMap');
@@ -30,6 +32,7 @@ function __metadata(k, v) {
 var Config = (function () {
     function Config(config) {
         var _this = this;
+        this.withCredentials = false;
         this.tokenRoot = null;
         this.cordova = false;
         this.baseUrl = '/';
@@ -385,6 +388,14 @@ function camelCase(name) {
     });
 }
 
+function getFullOpts(user, userOpts) {
+    var opts = userOpts || {};
+    if (user) {
+        opts.body = typeof user === 'string' ? user : JSON.stringify(user);
+    }
+    opts.method = opts.method || 'POST';
+    return opts;
+}
 var Local = (function () {
     function Local(http, shared, config) {
         this.http = http;
@@ -393,24 +404,15 @@ var Local = (function () {
     }
     Local.prototype.login = function (user, opts) {
         var _this = this;
-        opts = opts || {};
-        var url = opts.url ? opts.url : joinUrl(this.config.baseUrl, this.config.loginUrl);
-        if (user) {
-            opts.body = typeof user === 'string' ? user : JSON.stringify(user);
-        }
-        opts.method = opts.method || 'POST';
-        return this.http.request(url, opts)
-            .map(function (response) {
-            _this.shared.setToken(response);
-            return response;
-        });
+        var fullOpts = getFullOpts(user, opts);
+        var url = fullOpts.url ? fullOpts.url : joinUrl(this.config.baseUrl, this.config.loginUrl);
+        return this.http.request(url, fullOpts)
+            .do(function (response) { return _this.shared.setToken(response); });
     };
     Local.prototype.signup = function (user, opts) {
-        opts = opts || {};
-        var url = opts.url ? opts.url : joinUrl(this.config.baseUrl, this.config.signupUrl);
-        opts.body = JSON.stringify(user) || opts.body;
-        opts.method = opts.method || 'POST';
-        return this.http.request(url, opts);
+        var fullOpts = getFullOpts(user, opts);
+        var url = fullOpts.url ? fullOpts.url : joinUrl(this.config.baseUrl, this.config.signupUrl);
+        return this.http.request(url, getFullOpts(user, fullOpts));
     };
     Local = __decorate([
         _angular_core.Injectable(), 
@@ -572,7 +574,7 @@ var Oauth1 = (function () {
         var data = extend({}, userData);
         extend(data, oauthData);
         var exchangeForTokenUrl = this.config.baseUrl ? joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
-        return this.http.post(exchangeForTokenUrl, data);
+        return this.http.post(exchangeForTokenUrl, data, { withCredentials: this.config.withCredentials });
     };
     Oauth1.prototype.buildQueryString = function (obj) {
         return Object.keys(obj).map(function (key) {
@@ -658,7 +660,7 @@ var Oauth2 = (function () {
             data.state = oauthData.state;
         }
         var exchangeForTokenUrl = this.config.baseUrl ? joinUrl(this.config.baseUrl, this.defaults.url) : this.defaults.url;
-        return this.http.post(exchangeForTokenUrl, JSON.stringify(data));
+        return this.http.post(exchangeForTokenUrl, JSON.stringify(data), { withCredentials: this.config.withCredentials });
     };
     Oauth2.prototype.buildQueryString = function () {
         var _this = this;
@@ -717,11 +719,10 @@ var Oauth = (function () {
         var _this = this;
         var provider = this.config.providers[name].type === '1.0' ? this.injector.get(Oauth1) : this.injector.get(Oauth2);
         return provider.open(this.config.providers[name], userData || {})
-            .map(function (response) {
+            .do(function (response) {
             if (_this.config.providers[name].url) {
                 _this.shared.setToken(response);
             }
-            return response;
         });
     };
     Oauth.prototype.unlink = function (provider, opts) {

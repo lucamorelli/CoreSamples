@@ -12,7 +12,16 @@ export default class ContentPage extends SmartComponent {
     }
     doRender() {
         const headerTitle = "Welcome to Lorem Ipsum";
-        return React.createElement("div", {className: styles.container}, React.createElement(ContentHeader, {isActive: true, title: headerTitle}), React.createElement(ContentBody, {ref: "contentBodyRef", title: this.state.bodyTitle, summary: this.state.bodySummary}, React.createElement("div", {className: styles.hello}, React.createElement("button", {onClick: () => this.onButtonClick()}, "Say Hello!"), React.createElement("span", null, " You said hello ", this.state.sayHelloCount, " time(s)"))));
+        return React.createElement("div", {className: styles.container}, 
+            React.createElement(ContentHeader, {isActive: true, title: headerTitle}), 
+            React.createElement(ContentBody, {ref: "contentBodyRef", title: this.state.bodyTitle, summary: this.state.bodySummary}, 
+                React.createElement("div", {className: styles.hello}, 
+                    React.createElement("button", {onClick: () => this.onButtonClick()}, "Say Hello!"), 
+                    React.createElement("span", null, 
+                        " You said hello ", 
+                        this.state.sayHelloCount, 
+                        " time(s)"))
+            ));
     }
     getState() {
         return {

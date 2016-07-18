@@ -13,6 +13,7 @@ using MyLibrary.Model;
 namespace AureliaWebPack
 {
     // https://github.com/aurelia/skeleton-navigation/blob/master/skeleton-typescript-webpack/index.html
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)

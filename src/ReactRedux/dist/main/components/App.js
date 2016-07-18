@@ -14,7 +14,9 @@ var App = (function (_super) {
     }
     App.prototype.render = function () {
         var _a = this.props, todos = _a.todos, dispatch = _a.dispatch;
-        return (React.createElement("div", {className: "todoapp"}, React.createElement(todos_1.Header, {addTodo: function (text) { return dispatch(todos_1.addTodo(text)); }}), React.createElement(todos_1.MainSection, {todos: todos, editTodo: function (t, s) { return dispatch(todos_1.editTodo(t, s)); }, deleteTodo: function (t) { return dispatch(todos_1.deleteTodo(t)); }, completeTodo: function (t) { return dispatch(todos_1.completeTodo(t)); }, clearCompleted: function () { return dispatch(todos_1.clearCompleted()); }, completeAll: function () { return dispatch(todos_1.completeAll()); }})));
+        return (React.createElement("div", {className: "todoapp"}, 
+            React.createElement(todos_1.Header, {addTodo: function (text) { return dispatch(todos_1.addTodo(text)); }}), 
+            React.createElement(todos_1.MainSection, {todos: todos, editTodo: function (t, s) { return dispatch(todos_1.editTodo(t, s)); }, deleteTodo: function (t) { return dispatch(todos_1.deleteTodo(t)); }, completeTodo: function (t) { return dispatch(todos_1.completeTodo(t)); }, clearCompleted: function () { return dispatch(todos_1.clearCompleted()); }, completeAll: function () { return dispatch(todos_1.completeAll()); }})));
     };
     return App;
 }(React.Component));

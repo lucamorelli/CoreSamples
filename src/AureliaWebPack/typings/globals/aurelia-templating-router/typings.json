@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-templating-router\\dist\\commonjs\\aurelia-templating-router.d.ts",
-    "raw": "npm:aurelia-templating-router/dist/commonjs/aurelia-templating-router.d.ts",
-    "typings": "D:\\Sorgenti\\CoreSamples\\src\\AureliaWebPack\\node_modules\\aurelia-templating-router\\dist\\commonjs\\aurelia-templating-router.d.ts"
-  }
-}

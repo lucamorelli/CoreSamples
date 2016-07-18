@@ -8,5 +8,7 @@ var App_1 = require('./main/components/App');
 var reducer_1 = require('./main/reducer');
 var initialState = {};
 var store = redux_1.createStore(reducer_1.default, initialState);
-ReactDOM.render(React.createElement(react_redux_1.Provider, {store: store}, React.createElement(App_1.default, null)), document.getElementById('app'));
+ReactDOM.render(React.createElement(react_redux_1.Provider, {store: store}, 
+    React.createElement(App_1.default, null)
+), document.getElementById('app'));
 //# sourceMappingURL=main.js.map
